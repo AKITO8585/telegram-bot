@@ -5,10 +5,10 @@ from threading import Thread
 import time
 import os
 
-TOKEN = os.environ.get("TOKEN")
+TOKEN = os.environ.get("8564463627:AAG6vodvrzA9O99GjhPTLQhbDbnGvcoh868")
 bot = telebot.TeleBot(8564463627:AAG6vodvrzA9O99GjhPTLQhbDbnGvcoh868)
 
-BAD_WORDS = ["فحش1", "فحش2", "فحش3"]
+BAD_WORDS = ["کصننه", "مادرجنده", "خارکسه"]
 SPAM_INTERVAL = 5
 LINK_KEYWORDS = ["http://", "https://", ".com", ".ir"]
 last_messages = {}
@@ -60,29 +60,31 @@ def panel(message):
 def callback_inline(call):
     chat_id = call.message.chat.id
     if call.data == "mute":
-        bot.send_message(chat_id, "برای سکوت کردن ریپلای بزن:
-/mute")
+        bot.send_message(chat_id, "برای سکوت کردن ریپلای بزن:\n/mute")
     elif call.data == "ban":
-        bot.send_message(chat_id, "برای بن کردن ریپلای بزن:
-/ban")
+        bot.send_message(chat_id, "برای بن کردن ریپلای بزن:\n/ban")
 
 @bot.message_handler(commands=['mute'])
 def mute_user(message):
-    if message.from_user.id != ADMIN_ID: return
-    if not message.reply_to_message: return
+    if message.from_user.id != ADMIN_ID: 
+        return
+    if not message.reply_to_message: 
+        return
     user_id = message.reply_to_message.from_user.id
     bot.restrict_chat_member(message.chat.id, user_id, can_send_messages=False)
     bot.reply_to(message, f"{message.reply_to_message.from_user.first_name} سکوت شد 🔇")
 
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
-    if message.from_user.id != ADMIN_ID: return
-    if not message.reply_to_message: return
+    if message.from_user.id != ADMIN_ID: 
+        return
+    if not message.reply_to_message: 
+        return
     user_id = message.reply_to_message.from_user.id
     bot.ban_chat_member(message.chat.id, user_id)
     bot.reply_to(message, f"{message.reply_to_message.from_user.first_name} بن شد 🚫")
 
-app = Flask(__name__)
+app = Flask(name)
 
 @app.route('/')
 def home():
