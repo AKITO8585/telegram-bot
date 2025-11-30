@@ -1,0 +1,6 @@
+[build]
+builder = "python"
+
+[deploy]
+start = "python main.py"
+healthcheckPath = "/"
