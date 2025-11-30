@@ -5,7 +5,7 @@ from threading import Thread
 import time
 import os
 
-TOKEN = os.environ.get("8564463627:AAG6vodvrzA9O99GjhPTLQhbDbnGvcoh868")
+TOKEN = os.environ.get("TOKEN")
 bot = telebot.TeleBot(8564463627:AAG6vodvrzA9O99GjhPTLQhbDbnGvcoh868)
 
 BAD_WORDS = ["فحش1", "فحش2", "فحش3"]
